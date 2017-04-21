@@ -7,6 +7,9 @@
     <input type="button" value="Cookies" onclick="listCookies()" />
     <input type="button" value="Header" onclick="listHeaders()" />
 
+    <?php include('setCookie.php') ?>
+
+
     <script>
     function listCookies() {
         var theCookies = document.cookie.split(';');
