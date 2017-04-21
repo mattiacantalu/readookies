@@ -4,7 +4,26 @@
   </head>
   <body>
     <h1>Readookies</h1>
-    <input type="button" value="Refresh Cookies" onclick="window.location.reload()" />
-    <script src="cookies.js"></script>
+    <input type="button" value="Cookies" onclick="listCookies()" />
+    <input type="button" value="Header" onclick="listHeaders()" />
+
+    <script>
+    function listCookies() {
+        var theCookies = document.cookie.split(';');
+        var aString = '';
+        for (var i = 1 ; i <= theCookies.length; i++) {
+            aString += i + ' ' + theCookies[i-1] + "\n";
+        }
+        alert(aString);
+    }
+
+    function listHeaders() {
+      var req = new XMLHttpRequest();
+      req.open('GET', document.location, false);
+      req.send(null);
+      var headers = req.getAllResponseHeaders().toLowerCase();
+      alert(headers);
+    }
+</script>
   </body>
 </html>
